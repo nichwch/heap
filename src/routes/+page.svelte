@@ -1,14 +1,26 @@
 <script lang="ts">
-	let arr = [];
+	import ArrayVis from './ArrayVis.svelte';
+
+	let arr: number[] = [];
+	const addRandom = () => {
+		const newNum = Math.floor(Math.random() * 100);
+		arr = [...arr, newNum];
+	};
 </script>
 
-<div class="w-[45rem] mx-auto mt-24 h-[30rem] border-2 border-black bg-red-400 flex flex-col">
-	<div class="flex flex-grow border-b-2 border-black">
-		<div class=" flex-grow p-3 border-r-2 border-black">hello</div>
-		<div class=" flex-grow p-3">hello</div>
+<div class="w-[45rem] mx-auto mt-24 h-[30rem] border border-black bg-red-400 flex flex-col">
+	<div class="flex flex-grow border-b border-black">
+		<div class="  basis-1/2 flex-grow-0 flex-shrink-0 p-3 border-r border-black">
+			<ArrayVis {arr} />
+		</div>
+		<div class=" basis-1/2 flex-grow-0 flex-shrink-0 p-3">hello</div>
 	</div>
 	<div class="p-3">
-		<button class="button block bg-red-200 hover:bg-red-300">add random number</button>
-		<button class="mt-3 button block bg-red-200 hover:bg-red-300">pop root</button>
+		<button class="button bg-red-200 hover:bg-red-300" on:click={addRandom}
+			>add random number</button
+		>
+		<button class=" button bg-red-200 hover:bg-red-300">pop root</button>
+		<button class=" button bg-red-200 hover:bg-red-300">heapify up</button>
+		<button class=" button bg-red-200 hover:bg-red-300">heapify down</button>
 	</div>
 </div>
