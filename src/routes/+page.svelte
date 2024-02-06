@@ -4,6 +4,7 @@
 	import TreeVis from './TreeVis.svelte';
 
 	let arr: number[] = [];
+	let hovered: number | null = null;
 	const addRandom = () => {
 		const newNum = Math.floor(Math.random() * 100);
 		arr = [...arr, newNum];
@@ -23,10 +24,10 @@
 <div class="w-[45rem] mx-auto mt-5 h-[30rem] border border-black bg-red-400 flex flex-col">
 	<div class="flex flex-grow border-b border-black">
 		<div class="  basis-1/2 flex-grow-0 flex-shrink-0 p-3 border-r border-black">
-			<ArrayVis {arr} />
+			<ArrayVis bind:hovered {arr} />
 		</div>
-		<div class=" basis-1/2 flex-grow-0 flex-shrink-0 p-3">
-			<TreeVis {arr} />
+		<div class=" basis-1/2 flex-grow-0 flex-shrink-0 p-3 overflow-x-auto">
+			<TreeVis bind:hovered {arr} />
 		</div>
 	</div>
 	<div class="p-3">
