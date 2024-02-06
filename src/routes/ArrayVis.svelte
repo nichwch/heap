@@ -1,24 +1,11 @@
 <script lang="ts">
+	import { getChildIndices, getParentIndex } from '../lib';
+
 	export let arr: number[] = [];
 	export let hovered: number | null = null;
 
-	const getChildIndices = (index: number | null): [number | null, number | null] => {
-		if (index === null) return [null, null];
-		const left = index * 2 + 1;
-		const right = index * 2 + 2;
-		if (left > arr.length - 1) return [null, null];
-		if (right > arr.length - 1) return [left, null];
-		return [left, right];
-	};
-	const getParentIndex = (index: number | null): number | null => {
-		if (index === null) return null;
-		const parent = Math.floor((index - 1) / 2);
-		if (parent < 0) return null;
-		return parent;
-	};
-
-	$: parentOfHovered = getParentIndex(hovered);
-	$: [leftChild, rightChild] = getChildIndices(hovered);
+	$: parentOfHovered = getParentIndex(arr, hovered);
+	$: [leftChild, rightChild] = getChildIndices(arr, hovered);
 </script>
 
 <div class="flex flex-wrap">
@@ -37,10 +24,13 @@
 				hovered = null;
 			}}
 			class:bg-red-300={hovered === i}
-			class:bg-red-200={hovered !== i}
 			class:bg-green-300={leftChild === i || rightChild === i}
 			class:bg-yellow-300={parentOfHovered === i}
-			class="border border-black bg-red-200 px-1 mb-3 w-8"
+			class:bg-red-200={i !== leftChild &&
+				i !== rightChild &&
+				i !== parentOfHovered &&
+				i !== hovered}
+			class="border border-black px-1 mb-3 w-8"
 		>
 			{num}
 		</button>
