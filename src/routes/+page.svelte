@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { heapifyUp } from '../lib';
 	import ArrayVis from './ArrayVis.svelte';
+	import TreeVis from './TreeVis.svelte';
 
 	let arr: number[] = [];
 	const addRandom = () => {
@@ -24,7 +25,9 @@
 		<div class="  basis-1/2 flex-grow-0 flex-shrink-0 p-3 border-r border-black">
 			<ArrayVis {arr} />
 		</div>
-		<div class=" basis-1/2 flex-grow-0 flex-shrink-0 p-3">TODO: tree representation</div>
+		<div class=" basis-1/2 flex-grow-0 flex-shrink-0 p-3">
+			<TreeVis {arr} />
+		</div>
 	</div>
 	<div class="p-3">
 		<button class="button bg-red-200 hover:bg-red-300" on:click={addRandom}
