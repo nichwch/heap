@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { heapifyUp } from '../lib';
+	import { heapify, heapifyUp } from '../lib';
 	import ArrayVis from './ArrayVis.svelte';
 	import TreeVis from './TreeVis.svelte';
 
@@ -44,5 +44,12 @@
 			}}>heapify up</button
 		>
 		<button class=" button bg-red-200 hover:bg-red-300">TODO: heapify down</button>
+		<button
+			class=" button bg-red-200 hover:bg-red-300"
+			on:click={() => {
+				heapify(arr);
+				arr = arr;
+			}}>heapify everything</button
+		>
 	</div>
 </div>

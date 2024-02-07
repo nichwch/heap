@@ -31,3 +31,30 @@ export const heapifyUp = (arr: number[], index: number) => {
 		heapifyUp(arr, parentIndex);
 	}
 };
+
+//modifies array in place
+export const heapifyDown = (arr: number[], index: number) => {
+	const [leftIndex, rightIndex] = getChildIndices(arr, index);
+
+	let smallestIndex = index;
+	if (leftIndex !== null && arr[smallestIndex] > arr[leftIndex]) {
+		smallestIndex = leftIndex;
+	}
+	if (rightIndex !== null && arr[smallestIndex] > arr[rightIndex]) {
+		smallestIndex = rightIndex;
+	}
+
+	if (smallestIndex !== index) {
+		const temp = arr[index];
+		arr[index] = arr[smallestIndex];
+		arr[smallestIndex] = temp;
+		heapifyDown(arr, smallestIndex);
+	}
+};
+
+//modifies array in place
+export const heapify = (arr: number[]) => {
+	for (let i = arr.length - 1; i >= 0; i--) {
+		heapifyDown(arr, i);
+	}
+};
