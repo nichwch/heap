@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { heapify, heapifyDown, heapifyUp } from '../lib';
+	import HeapifyUpExplanation from '../lib/explanations/HeapifyUpExplanation.svelte';
 	import ArrayVis from './ArrayVis.svelte';
 	import TreeVis from './TreeVis.svelte';
 
@@ -34,8 +35,8 @@
 		<div class="border-r border-r-black flex-grow basis-1/2 p-2">
 			<h1 class="text-xl mb-2">Adding elements</h1>
 			<p class="mb-2">
-				Try adding an element, then heapifying up right afterwards. This will maintain the heap
-				property. (It will not work if you add multiple then heapify up - you will have to heapify
+				Try adding an element, then <HeapifyUpExplanation /> right afterwards. This will maintain the
+				heap property. (It will not work if you add multiple then heapify up - you will have to heapify
 				down for that.)
 			</p>
 			<button class="button bg-red-200 hover:bg-red-300" on:click={addRandom}
