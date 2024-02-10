@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { heapify, heapifyDown, heapifyUp } from '../lib';
+	import HeapifyDownExplanation from '../lib/explanations/HeapifyDownExplanation.svelte';
 	import HeapifyUpExplanation from '../lib/explanations/HeapifyUpExplanation.svelte';
 	import ArrayVis from './ArrayVis.svelte';
 	import TreeVis from './TreeVis.svelte';
@@ -36,8 +37,8 @@
 			<h1 class="text-xl mb-2">Adding elements</h1>
 			<p class="mb-2">
 				Try adding an element, then <HeapifyUpExplanation /> right afterwards. This will maintain the
-				heap property. (It will not work if you add multiple then heapify up - you will have to heapify
-				down for that.)
+				heap property. (It will not work if you add multiple then heapify up - you will have to <HeapifyDownExplanation
+				/> for that.)
 			</p>
 			<button class="button bg-red-200 hover:bg-red-300" on:click={addRandom}
 				>add random number</button
@@ -55,7 +56,8 @@
 			<h1 class="text-xl mb-2">Removing the root</h1>
 			<p class="mb-2">
 				Try popping the root. This will automatically replace the root with the most recently added
-				element. To restore the heap property after doing this, try running heapify down.
+				element. To restore the heap property after doing this, try running <HeapifyDownExplanation
+				/>.
 			</p>
 			<button
 				class=" button bg-red-200 hover:bg-red-300"
