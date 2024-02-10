@@ -1,18 +1,5 @@
-# create-svelte
+A visualization of a heap in Svelte I built, mostly to teach myself how heaps work. It provides an array and a tree visualization of a heap, and allows elements to be added and popped from the root.
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/main/packages/create-svelte).
-
-## Creating a project
-
-If you're seeing this, you've probably already done this step. Congrats!
-
-```bash
-# create a new project in the current directory
-npm create svelte@latest
-
-# create a new project in my-app
-npm create svelte@latest my-app
-```
 
 ## Developing
 
