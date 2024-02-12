@@ -6,7 +6,7 @@
 
 <button
 	class="inline-block bg-green-100 hover:bg-green-200 text-green-700 border transition-all border-green-700 px-1 py-0"
-	on:click={() => (showingWindow = true)}>heapifying down</button
+	on:click={() => (showingWindow = true)}><slot /></button
 >
 {#if showingWindow}
 	<Modal bind:showingWindow>

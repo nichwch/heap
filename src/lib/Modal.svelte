@@ -19,7 +19,8 @@
 	>
 	</button>
 	<div
-		class="fixed block left-1/2 top-32 border border-black w-[26rem] ml-[-13rem] h-96 z-50 bg-white"
+		class="fixed block left-1/2 top-32 border border-black
+		overflow-y-auto w-[20rem] ml-[-10rem] md:w-[26rem] md:ml-[-13rem] h-96 z-50 bg-white"
 	>
 		<div>
 			<button class="float-right pr-1" on:click={() => (showingWindow = false)}>X</button>
