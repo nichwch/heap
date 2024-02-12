@@ -21,14 +21,22 @@
 	> for that.)
 </p>
 <button
-	class="button bg-red-200 hover:bg-red-300 px-1 border border-black transition-all"
+	class="button bg-red-200 hover:bg-red-300 px-1 border border-black transition-all mb-3"
 	on:click={addRandom}>add random number</button
 >
 <button
-	class=" button bg-red-200 hover:bg-red-300 px-1 border border-black transition-all"
+	class=" button bg-red-200 hover:bg-red-300 px-1 border border-black transition-all mb-3"
 	on:click={() => {
 		heapifyUp(arr, arr.length - 1);
 		// trigger svelte state update
 		arr = arr;
 	}}>heapify up</button
+>
+
+<button
+	class=" button bg-red-200 hover:bg-red-300 px-1 border border-black transition-all"
+	on:click={() => {
+		heapify(arr);
+		arr = arr;
+	}}>heapify down</button
 >

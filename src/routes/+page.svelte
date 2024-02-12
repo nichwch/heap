@@ -2,23 +2,15 @@
 	import RemoveElementExplanation from './RemoveElementExplanation.svelte';
 
 	import AddElementExplanation from './AddElementExplanation.svelte';
-
-	import { heapify, heapifyDown, heapifyUp } from '../lib';
-	import HeapifyDownExplanation from '../lib/explanations/HeapifyDownExplanation.svelte';
-	import HeapifyUpExplanation from '../lib/explanations/HeapifyUpExplanation.svelte';
 	import ArrayVis from './ArrayVis.svelte';
 	import TreeVis from './TreeVis.svelte';
 	import * as Tabs from '$lib/components/ui/tabs';
 
 	let arr: number[] = [];
 	let hovered: number | null = null;
-	const addRandom = () => {
-		const newNum = Math.floor(Math.random() * 100);
-		arr = [...arr, newNum];
-	};
 </script>
 
-<div class="w-[20rem] mx-auto mt-16">
+<div class="w-[15rem] md:w-[20rem] mx-auto mt-16">
 	<h1 class="font-semibold">Heap.svelte</h1>
 	<a class="block" href="https://nicholaschen.io">By Nicholas Chen</a>
 	<a class="block" href="https://github.com/nichwch/heap">source</a>
@@ -28,7 +20,9 @@
 		>" -You, hopefully</i
 	>
 </div>
-<div class="w-4/5 md:w-[45rem] mx-auto mt-5 h-[30rem] border border-black bg-red-400 flex flex-col">
+<div
+	class="w-4/5 md:w-[45rem] mx-auto mt-5 h-[35rem] md:h-[30rem] border border-black bg-red-400 flex flex-col"
+>
 	<!-- desktop -->
 	<div class="hidden md:flex flex-grow border-b border-black">
 		<div class="  basis-1/2 flex-grow-0 flex-shrink-0 p-3 border-r border-black">
@@ -61,7 +55,10 @@
 		</div>
 	</div>
 	<!-- mobile -->
-	<Tabs.Root value="addElement" class="p-3 block md:hidden basis-1/2 border-b border-black">
+	<Tabs.Root
+		value="addElement"
+		class="p-3 block md:hidden basis-1/2 overflow-y-auto border-b border-black"
+	>
 		<Tabs.List>
 			<Tabs.Trigger value="addElement">add element</Tabs.Trigger>
 			<Tabs.Trigger value="removeElement">remove element</Tabs.Trigger>
